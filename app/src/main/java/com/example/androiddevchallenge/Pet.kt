@@ -16,14 +16,17 @@
 package com.example.androiddevchallenge
 
 data class Pet(
+    val id: String,
     val name: String,
-    val species: Type,
+    val specie: Type,
     val breed: String,
     val age: Int,
     val genre: Genre,
     val description: String = "",
     val image: ImageType? = null
 )
+
+fun List<Pet>.filterGenre(genre: Genre) = filter { it.genre == genre }
 
 sealed class ImageType {
     data class ResourceImage(val drawableId: Int) : ImageType()
@@ -44,48 +47,54 @@ enum class Type {
 
 fun obtainPets() = listOf(
     Pet(
+        "1",
         "Thor",
-        species = Type.Rabbit,
+        specie = Type.Rabbit,
         "Belier",
         1,
         Genre.Male,
         image = ImageType.ResourceImage(R.drawable.thor)
     ),
     Pet(
+        "2",
         "Odin",
-        species = Type.Dog,
+        specie = Type.Dog,
         "Pomerania",
         age = 1,
         genre = Genre.Male,
         image = ImageType.ResourceImage(R.drawable.odin)
     ),
     Pet(
+        "3",
         "Lúa",
-        species = Type.Rabbit,
+        specie = Type.Rabbit,
         "Belier",
         1,
         genre = Genre.Female,
         image = ImageType.ResourceImage(R.drawable.lua)
     ),
     Pet(
+        "4",
         "Dana",
-        species = Type.Dog,
+        specie = Type.Dog,
         "Cross",
         age = 1,
         genre = Genre.Female,
         image = ImageType.ResourceImage(R.drawable.dana)
     ),
     Pet(
+        "5",
         "Kuma",
-        species = Type.Rabbit,
+        specie = Type.Rabbit,
         "Belier",
         age = 2,
         genre = Genre.Female,
         image = ImageType.ResourceImage(R.drawable.kuma)
     ),
     Pet(
+        "6",
         "Java",
-        species = Type.GuineaPig,
+        specie = Type.GuineaPig,
         "Peruvian",
         2,
         Genre.Female,
@@ -94,24 +103,27 @@ fun obtainPets() = listOf(
         )
     ),
     Pet(
+        "7",
         "Luna",
-        species = Type.GuineaPig,
+        specie = Type.GuineaPig,
         "Abyssinian",
         2,
         Genre.Female,
         image = ImageType.ResourceImage(R.drawable.luna)
     ),
     Pet(
+        "8",
         "Nia",
-        species = Type.GuineaPig,
+        specie = Type.GuineaPig,
         "Abyssinian",
         4,
         Genre.Female,
         image = ImageType.ResourceImage(R.drawable.nia)
     ),
     Pet(
+        "9",
         "Amy",
-        species = Type.Hedgehog,
+        specie = Type.Hedgehog,
         "African",
         5,
         Genre.Female,
